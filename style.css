@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Philosopher:ital@1&family=Poppins&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Dosis', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(#a2000a,#cf0000);
+    /*cursor: url("./images/imgonline-com-ua-Resize-8VVBJU1EgSc.png"), auto;*/
+    cursor: none;
+}
+.cursor{
+    width: 35px;
+    height: 35px;
+    border:2px solid white;
+    border-radius: 50%;
+    position: absolute;
+
+
+    animation: cursor .5s infinite alternate;
+}
+.cursor:after{
+    content: '';
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    border: 8px solid gray;
+    border-radius: 50%;
+    opacity: .7;
+    top:-9px;
+    left:-9px;
+
+    animation: cursorAfter .5s infinite alternate;
+}
+.expand{
+    animation: expand .7s forwards;
+    border:1px solid green;
+}
+
+@keyframes expand {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform:scale(3);
+
+    }
+    100%{
+        transform:scale(1);
+        opacity: 0;
+    }
+}
+@keyframes cursor {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(.7);
+    }
+}
+@keyframes cursorAfter {
+    from{
+        transform: scale(1);
+
+    }
+    to{
+        transform: scale(.4);
+    }
+}
+.container{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.container:before{
+    content:'';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background: url("./images/tree.png");
+    z-index: 1;
+}
+.circle{
+    position: absolute;
+    top:10%;
+    left:50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: 350px;
+    background: #fff;
+    border-radius: 50%;
+}
+.circle:before{
+    content:'';
+    position: absolute;
+    inset:-200px -300px;
+    background-image: url("./images/santa.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 600px;
+    animation: santa 5s linear infinite;
+}
+@keyframes santa {
+    0%,100%{
+transform: translateY(-25px);
+}
+    50%{
+        transform: translateY(25px);
+    }
+}
+.circle:after{
+    content: 'Happy New Year';
+    position: absolute;
+    inset:-125px -200px;
+    font-size: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color:white;
+}
+.snow{
+    position: relative;
+    display: flex;
+}
+.snow span{
+    position: relative;
+    min-width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    margin: 0 1vw;
+    box-shadow: -100px 20px 5px #fff, 100px 20px 10px #fff;
+    animation: snow 15s linear infinite;
+    animation-duration: calc(75s / var(--i));
+}
+.snow span:nth-child(even){
+    min-width: 10px;
+    height: 10px;
+}
+@keyframes snow {
+    0%{
+        transform: translateY(-10vh);
+    }
+    100%{
+        transform: translateY(100vh);
+    }
+}
+
+.wavesWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    transform: translateZ(0);
+    border-radius: inherit;
+    pointer-events: none;
+    animation: waves-shadow 2s ease;
+}
+body.wavesEffect{
+    background: white;
+}
+ .wavesEffect {
+    backface-visibility: hidden;
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0.7);
+    background-color: #e74c3c;
+    opacity: 0.4;
+    animation: waves 2s;
+}
+ @keyframes waves-shadow {
+     0% {
+         box-shadow: 0 0 0 transparent;
+     }
+
+     20% {
+         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+     }
+
+     100% {
+         box-shadow: 0 0 0 transparent;
+     }
+ }
+
+@keyframes waves {
+    to {
+        transform: scale(10);
+        opacity: 0;
+    }
+}
